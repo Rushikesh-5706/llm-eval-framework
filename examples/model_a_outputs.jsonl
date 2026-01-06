@@ -1,0 +1,25 @@
+{"answer":"EC2 is a compute service."}
+{"answer":"Kubernetes orchestrates containers."}
+{"answer":"Docker runs containers."}
+{"answer":"S3 stores files."}
+{"answer":"IAM manages access."}
+{"answer":"VPC is a private network."}
+{"answer":"Lambda runs code."}
+{"answer":"RDS hosts databases."}
+{"answer":"EKS runs Kubernetes."}
+{"answer":"CloudWatch monitors."}
+{"answer":"SNS sends notifications."}
+{"answer":"SQS queues messages."}
+{"answer":"Terraform manages infra."}
+{"answer":"CI/CD automates deployment."}
+{"answer":"Git controls versions."}
+{"answer":"API connects systems."}
+{"answer":"REST is an API design."}
+{"answer":"NLP handles text."}
+{"answer":"LLM generates language."}
+{"answer":"RAG retrieves then generates."}
+{"answer":"BLEU compares text."}
+{"answer":"ROUGE measures overlap."}
+{"answer":"BERTScore uses embeddings."}
+{"answer":"Faithfulness checks grounding."}
+{"answer":"Hallucination is false info."}

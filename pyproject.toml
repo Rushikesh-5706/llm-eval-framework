@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "llm-eval"
+version = "0.1.0"
+description = "Production-grade LLM evaluation framework"
+authors = ["Rushikesh"]
+packages = [{ include = "llm_eval", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+pandas = "^2.2"
+numpy = "^1.26"
+pyyaml = "^6.0"
+nltk = "^3.9"
+bert-score = "^0.3.13"
+transformers = "^4.41"
+torch = "^2.2"
+openai = "^1.30"
+anthropic = "^0.25"
+matplotlib = "^3.8"
+seaborn = "^0.13"
+jinja2 = "^3.1"
+pydantic = "^2.7"
+typer = "^0.12"
+urllib3 = "<2"
+pyparsing = "==2.4.7"
+rouge-score = "^0.1.2"
+tenacity = "^9.1.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-cov = "^4.1"
+
+[tool.poetry.scripts]
+llm-eval = "llm_eval.cli.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

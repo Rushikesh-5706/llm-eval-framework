@@ -1,0 +1,15 @@
+dataset_path: /app/benchmarks/rag_benchmark.jsonl
+output_dir: /app/results
+
+models:
+  model_a: /app/examples/model_a_outputs.jsonl
+  model_b: /app/examples/model_b_outputs.jsonl
+
+metrics:
+  - bleu
+  - rouge_l
+  - bertscore
+  - faithfulness
+  - context_relevancy
+  - answer_relevancy
+

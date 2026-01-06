@@ -1,0 +1,25 @@
+{"query":"What is AWS EC2?","expected_answer":"Amazon EC2 provides scalable virtual servers in the cloud.","retrieved_contexts":["EC2 is a cloud compute service."]}
+{"query":"What is AWS S3?","expected_answer":"Amazon S3 is an object storage service.","retrieved_contexts":["S3 stores objects in buckets."]}
+{"query":"What is AWS Lambda?","expected_answer":"AWS Lambda lets you run code without managing servers.","retrieved_contexts":["Lambda is a serverless compute service."]}
+{"query":"What is IAM?","expected_answer":"IAM manages users, roles, and permissions in AWS.","retrieved_contexts":["IAM controls access to AWS resources."]}
+{"query":"What is VPC?","expected_answer":"A VPC is a virtual network dedicated to your AWS account.","retrieved_contexts":["VPC provides isolated networking."]}
+{"query":"What is RDS?","expected_answer":"RDS is a managed relational database service.","retrieved_contexts":["RDS supports MySQL, PostgreSQL, and more."]}
+{"query":"What is DynamoDB?","expected_answer":"DynamoDB is a fully managed NoSQL key-value database.","retrieved_contexts":["DynamoDB offers single-digit millisecond latency."]}
+{"query":"What is CloudWatch?","expected_answer":"CloudWatch monitors AWS resources and applications.","retrieved_contexts":["CloudWatch collects logs and metrics."]}
+{"query":"What is SNS?","expected_answer":"SNS is a messaging service for notifications.","retrieved_contexts":["SNS supports pub/sub messaging."]}
+{"query":"What is SQS?","expected_answer":"SQS is a fully managed message queue service.","retrieved_contexts":["SQS decouples application components."]}
+{"query":"What is Auto Scaling?","expected_answer":"Auto Scaling automatically adjusts compute capacity.","retrieved_contexts":["Auto Scaling responds to demand changes."]}
+{"query":"What is Elastic Load Balancer?","expected_answer":"ELB distributes incoming traffic across targets.","retrieved_contexts":["ELB improves availability."]}
+{"query":"What is CloudFormation?","expected_answer":"CloudFormation provisions infrastructure as code.","retrieved_contexts":["CloudFormation uses templates."]}
+{"query":"What is ECS?","expected_answer":"ECS is a container orchestration service.","retrieved_contexts":["ECS runs Docker containers."]}
+{"query":"What is EKS?","expected_answer":"EKS is a managed Kubernetes service.","retrieved_contexts":["EKS runs Kubernetes on AWS."]}
+{"query":"What is Route 53?","expected_answer":"Route 53 is a scalable DNS service.","retrieved_contexts":["Route 53 routes internet traffic."]}
+{"query":"What is API Gateway?","expected_answer":"API Gateway manages and secures APIs.","retrieved_contexts":["API Gateway supports REST and HTTP APIs."]}
+{"query":"What is Step Functions?","expected_answer":"Step Functions coordinates distributed workflows.","retrieved_contexts":["Step Functions manage state machines."]}
+{"query":"What is Kinesis?","expected_answer":"Kinesis processes real-time streaming data.","retrieved_contexts":["Kinesis handles data streams."]}
+{"query":"What is Redshift?","expected_answer":"Redshift is a data warehouse service.","retrieved_contexts":["Redshift is optimized for analytics."]}
+{"query":"What is Glue?","expected_answer":"Glue is a serverless ETL service.","retrieved_contexts":["Glue prepares data for analytics."]}
+{"query":"What is Athena?","expected_answer":"Athena queries data in S3 using SQL.","retrieved_contexts":["Athena is serverless SQL query service."]}
+{"query":"What is CloudTrail?","expected_answer":"CloudTrail logs AWS API activity.","retrieved_contexts":["CloudTrail records account activity."]}
+{"query":"What is Elastic Beanstalk?","expected_answer":"Elastic Beanstalk deploys and manages applications.","retrieved_contexts":["Elastic Beanstalk handles infrastructure."]}
+{"query":"What is Snowball?","expected_answer":"Snowball transfers large data volumes to AWS.","retrieved_contexts":["Snowball is a physical data transfer device."]}

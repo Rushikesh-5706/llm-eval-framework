@@ -1,0 +1,15 @@
+services:
+  llm-eval:
+    image: rushi5706/llm-eval:latest
+    container_name: llm-eval
+    working_dir: /app
+    volumes:
+      - ./benchmarks:/app/benchmarks
+      - ./examples:/app/examples
+      - ./results:/app/results
+    command: >
+      llm-eval
+      --config /app/examples/config.yaml
+      --output-dir /app/results
+      --verbose
+

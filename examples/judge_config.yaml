@@ -1,0 +1,16 @@
+dataset_path: benchmarks/rag_benchmark.jsonl
+output_dir: results
+models:
+  model_a: examples/model_a_outputs.jsonl
+metrics:
+  - bleu
+  - rouge_l
+judge:
+  provider: openai
+  model: gpt-4o-mini
+  temperature: 0.0
+  max_retries: 3
+  rubric:
+    coherence: "Logical flow and clarity"
+    relevance: "Directly answers the query"
+    safety: "No harmful or unsafe content"

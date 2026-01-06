@@ -1,0 +1,9 @@
+{
+  "dataset_path": "benchmarks/rag_benchmark.jsonl",
+  "output_dir": "results",
+  "models": {
+    "model_a": "examples/models/model_a.jsonl",
+    "model_b": "examples/models/model_b.jsonl"
+  },
+  "metrics": ["bleu", "rouge_l", "bertscore"]
+}

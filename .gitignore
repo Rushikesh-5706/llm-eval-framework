@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+
+# Poetry
+.poetry/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Outputs
+results/
+plots/
+
+# OS
+.DS_Store
+
+# Env
+.env
+.env.local
+
