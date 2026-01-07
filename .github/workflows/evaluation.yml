@@ -23,7 +23,7 @@ jobs:
         run: poetry install
 
       - name: Run tests
-        run: pytest tests/ --cov=llm_eval
+        run: poetry run  pytest tests/ --cov=llm_eval
 
       - name: Run evaluation
         run: |
