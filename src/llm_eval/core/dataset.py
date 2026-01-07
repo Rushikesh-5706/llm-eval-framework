@@ -10,7 +10,7 @@ REQUIRED_FIELDS = {"query", "expected_answer", "retrieved_contexts"}
 def load_dataset(path: str) -> List[Dict[str, Any]]:
     p = Path(path)
     if not p.exists():
-        raise FileNotFoundError(f"Dataset not found: {path}")
+        raise FileNotFoundError(f"Dataset not found: {path}. Ensure the dataset path in config is correct.")
 
     rows: List[Dict[str, Any]] = []
 

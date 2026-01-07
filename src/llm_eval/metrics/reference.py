@@ -17,6 +17,8 @@ class BLEUMetric(Metric):
         if n == 0:
             return 0.0
             
+        if n == 0:
+            return 0.0
         weights = tuple([1 / n] * n)
         return sentence_bleu(
             [ref],

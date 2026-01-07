@@ -33,7 +33,10 @@ def main():
     setup_logger(verbose=args.verbose)
 
     # Load config
-    cfg = load_config(args.config)
+    try:
+        cfg = load_config(args.config)
+    except Exception as e:
+        raise SystemExit(f"[CONFIG ERROR] {e}")
 
     # Override models if provided
     if args.models:
