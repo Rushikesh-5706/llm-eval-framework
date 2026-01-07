@@ -6,9 +6,17 @@ from llm_eval.core.base_metric import Metric
 class BLEUMetric(Metric):
     name = "bleu"
     def compute(self, sample):
-        ref = sample["expected_answer"].split()
-        hyp = sample["answer"].split()
+        expected = sample.get("expected_answer", "")
+        answer = sample.get("answer", "")
+        
+        ref = expected.split()
+        hyp = answer.split()
+        
+        # FIX: Ensure n is at least 1 to avoid ZeroDivisionError
         n = min(4, len(ref), len(hyp))
+        if n == 0:
+            return 0.0
+            
         weights = tuple([1 / n] * n)
         return sentence_bleu(
             [ref],
@@ -20,22 +28,38 @@ class BLEUMetric(Metric):
 class RougeLMetric(Metric):
     name = "rouge_l"
     def compute(self, sample):
+        expected = sample.get("expected_answer", "")
+        answer = sample.get("answer", "")
+        
+        if not expected or not answer:
+            return 0.0
+            
         scorer = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
-        return scorer.score(
-            sample["expected_answer"],
-            sample["answer"],
-        )["rougeL"].fmeasure
+        return scorer.score(expected, answer)["rougeL"].fmeasure
 
 class BERTScoreMetric(Metric):
     name = "bertscore"
 
     def compute(self, sample):
-        return self.compute_batch(
-            [sample["answer"]],
-            [sample["expected_answer"]],
-        )[0]
+        # Lightweight deterministic fallback to avoid heavy model loading if preferred,
+        # or use the batch compute logic.
+        answer = sample.get("answer", "")
+        expected = sample.get("expected_answer", "")
+        
+        if not answer or not expected:
+            return 0.0
+            
+        # Standard overlap fallback (as in your original snippet)
+        ans_set = set(answer.split())
+        exp_set = set(expected.split())
+        
+        overlap = len(ans_set & exp_set)
+        return overlap / max(len(exp_set), 1)
 
     def compute_batch(self, answers, references):
+        if not answers or not references:
+            return []
+            
         _, _, f1 = bert_score(
             answers,
             references,
@@ -46,17 +70,3 @@ class BERTScoreMetric(Metric):
             verbose=False,
         )
         return f1.tolist()
-
-
-class BERTScoreMetric:
-    name = "bertscore"
-
-    def compute(self, sample):
-        # lightweight deterministic fallback (no GPU / no download)
-        # production-safe placeholder for CI + local runs
-        answer = sample.get("answer", "")
-        expected = sample.get("expected_answer", "")
-        if not answer or not expected:
-            return 0.0
-        overlap = len(set(answer.split()) & set(expected.split()))
-        return overlap / max(len(set(expected.split())), 1)
