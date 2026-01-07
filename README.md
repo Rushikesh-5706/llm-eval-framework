@@ -214,8 +214,11 @@ Recommended screenshots:
 
 Example:
 ```markdown
-![CLI Run](screenshots/cli_run.png)
-![Plots](screenshots/plots.png)
+#### CLI Interface
+![CLI Help](screenshots/01_cli_help.png)
+
+#### Successful Evaluation
+![Evaluation Run](screenshots/02_successful_run.png)
 ```
 
 ---
