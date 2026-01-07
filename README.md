@@ -64,6 +64,19 @@ pip install -e .
 
 ## Quick Start
 
+### Path Resolution Notes
+
+All paths in configuration files (datasets, model outputs) are resolved
+relative to the configuration file location, not the execution directory.
+
+This ensures consistent behavior across:
+- Local execution
+- Docker containers
+- CI/CD runners
+
+If you move the config file, ensure referenced paths move with it.
+
+
 ### Run Evaluation Locally
 
 ```bash
@@ -149,8 +162,29 @@ CLI → Config Loader → Dataset Loader → Metric Engine → Aggregator → Re
 - **Metrics (`llm_eval.metrics`, `llm_eval.rag`)**  
   Modular metric implementations with a shared base interface.
 
+  RAG-specific metrics (Faithfulness, Context Relevancy, Answer Relevancy)
+are implemented as lightweight, explainable heuristics designed for
+production monitoring rather than academic benchmarking.
+
+This aligns with real-world evaluation needs where:
+- Consistency matters more than theoretical optimality
+- Metrics must be fast, interpretable, and CI-friendly
+
+
 - **LLM-as-a-Judge (`llm_eval.judge`)**  
   API-based evaluator with retry and backoff logic.
+
+  ### 🤖 LLM-as-a-Judge Design Note
+
+The framework includes a production-ready LLM-as-a-Judge architecture
+with prompt templates, retry logic, and structured scoring.
+
+For CI stability and offline reproducibility, API calls are mockable
+and disabled by default. This design allows:
+- Deterministic testing
+- CI-safe execution
+- Easy activation of real APIs by providing environment variables
+
 
 - **Reporting (`llm_eval.reporting`)**  
   JSON and Markdown report generation.
@@ -236,6 +270,15 @@ On every push or PR, it:
 - Fails the build on errors
 
 This enables automated quality gates for LLM systems.
+
+The CI workflow validates:
+- Package installation
+- Unit and integration tests
+- CLI execution
+- Configuration correctness
+
+Visualization artifacts are generated during evaluation runs
+and can be inspected locally or via CI artifacts if enabled.
 
 ---
 
