@@ -52,22 +52,26 @@ def main():
     out = Path(args.output_dir)
     out.mkdir(parents=True, exist_ok=True)
 
-    # Load model outputs (paths resolved relative to config)
-    model_outputs = {}
-    for name, path in cfg.models.items():
-        path = Path(path)
-        if not path.is_absolute():
-            path = (config_dir / path).resolve()
+# Resolve paths relative to project root (repo root)
+project_root = Path.cwd()
 
-        if not path.exists():
-            raise FileNotFoundError(f"Model output file not found: {path}")
+model_outputs = {}
 
-        with open(path) as f:
-            model_outputs[name] = {
-                i: json.loads(line)["answer"]
-                for i, line in enumerate(f)
-                if line.strip()
-            }
+for name, path in cfg.models.items():
+    path = Path(path)
+
+    if not path.is_absolute():
+        path = (project_root / path).resolve()
+
+    if not path.exists():
+        raise FileNotFoundError(f"Model output file not found: {path}")
+
+    with open(path) as f:
+        model_outputs[name] = {
+            i: json.loads(line)["answer"]
+            for i, line in enumerate(f)
+            if line.strip()
+        }
 
     # Resolve dataset path (relative to config)
     dataset_path = Path(cfg.dataset_path)
