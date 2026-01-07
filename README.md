@@ -207,19 +207,17 @@ results/plots/
 
 Screenshots are stored in the `screenshots/` directory and rendered automatically by GitHub.
 
-Recommended screenshots:
-- CLI execution (`llm-eval --help`)
-- Successful evaluation run
-- Generated plots directory
-
-Example:
-```markdown
 #### CLI Interface
 ![CLI Help](screenshots/01_cli_help.png)
 
 #### Successful Evaluation
 ![Evaluation Run](screenshots/02_successful_run.png)
-```
+
+#### Generated Results
+![Results Generated](screenshots/03_results_generated.png)
+
+#### CI/CD Pass
+![CI Pass](screenshots/04_ci_pass.png)
 
 ---
 
