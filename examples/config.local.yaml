@@ -1,9 +1,9 @@
-dataset_path: benchmarks/rag_benchmark.jsonl
+dataset_path: ../benchmarks/rag_benchmark.jsonl
 output_dir: /results
 
 models:
-  model_a: examples/model_a_outputs.jsonl
-  model_b: examples/model_b_outputs.jsonl
+  model_a: model_a_outputs.jsonl
+  model_b: model_b_outputs.jsonl
 
 metrics:
   - bleu
