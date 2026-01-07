@@ -97,6 +97,25 @@ Expected files:
 
 ---
 
+### Verifying Successful Execution
+
+After running an evaluation, verify outputs:
+
+```bash
+ls results/
+Expected files:
+
+results.json — machine-readable evaluation results
+
+report.md — human-readable summary
+
+plots/*.png — metric visualizations
+
+If these files exist, the evaluation completed successfully.
+```
+---
+
+
 ### Run using Docker Compose (Recommended for Evaluation)
 
 ```bash
@@ -174,7 +193,7 @@ This aligns with real-world evaluation needs where:
 - **LLM-as-a-Judge (`llm_eval.judge`)**  
   API-based evaluator with retry and backoff logic.
 
-  ### 🤖 LLM-as-a-Judge Design Note
+### LLM-as-a-Judge Design Note
 
 The framework includes a production-ready LLM-as-a-Judge architecture
 with prompt templates, retry logic, and structured scoring.
