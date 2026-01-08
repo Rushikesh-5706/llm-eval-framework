@@ -332,6 +332,22 @@ docker run --rm rushi5706/llm-eval:latest llm-eval --help
 
 ---
 
+## Running Tests (Docker)
+
+This container uses `llm-eval` as its ENTRYPOINT so that it behaves as an executable
+CLI by default.
+
+Because of this, when running test commands like `pytest`, the ENTRYPOINT must be
+temporarily overridden.
+
+### Correct way to run tests
+
+```bash
+docker-compose run --rm --entrypoint pytest llm-eval tests/ --cov=llm_eval
+```
+
+---
+
 ## Extensibility
 
 - Add new metrics via the plugin system
