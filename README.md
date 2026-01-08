@@ -356,12 +356,9 @@ docker-compose run --rm --entrypoint pytest llm-eval tests/ --cov=llm_eval
 
 ---
 
-## Video Demo (Optional)
+## Video Demo 
 
-A full screencast walkthrough can be linked here showing:
-- Setup
-- CLI execution
-- Result interpretation
+Here is the video demo link 🔗 https://drive.google.com/file/d/1v0OxKgFwMy6YHcKpBwtRyp0KZxa9R96O/view?usp=sharing
 
 ---
 
